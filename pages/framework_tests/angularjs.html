@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <script crossorigin src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <title>AngularJS performace test</title>
+</head>
+<body>
+    
+    <div ng-app="app" ng-controller="controller" style="text-align:center; margin-top:2rem">
+        <a ng-click="testAdd10000Items()" class="btn">Test adding 10000 items</a>
+        <ul>
+            <li ng-repeat="item in items">{{item.id}}: {{item.name}}</li>
+        </ul>
+      </div>
+      
+
+      <script src="/js/framework_tests/angular.js"></script>
+
+</body>
+</html>

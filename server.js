@@ -157,13 +157,25 @@ function checkLogin(request){
     return (Session.get(request, 'user_id') != undefined);
 }
 
-function showPage(path, vars) {
+function showPage(path, vars, doProcess = true) {
     var file = fs.readFileSync(path);
     file = file.toString();
-    file = HtmlPreprocessor.process(file, vars);
+    if(doProcess) file = HtmlPreprocessor.process(file, vars);
     return file;
 
 }
+
+app.get('/frameworktest/angularjs', (request) => {
+    return showPage('./pages/framework_tests/angularjs.html', null, false);
+});
+
+app.get('/frameworktest/react', (request) => {
+    return showPage('./pages/framework_tests/react.html', null, false);
+});
+
+app.get('/frameworktest/vuejs', (request) => {
+    return showPage('./pages/framework_tests/vuejs.html', null, false);
+});
 
 Session.clearAll();
 app.listen(8080);
